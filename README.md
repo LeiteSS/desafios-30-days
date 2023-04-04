@@ -7,6 +7,7 @@ para poder aprender Javascript (e React :))
 
 - Navegador de Internet
 - Visual Studio Code
+   - Instale a extensão: **Live Server**. 
 - NodeJS
 
 ## Comandos e Atalhos
