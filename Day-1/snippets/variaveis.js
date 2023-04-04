@@ -1,4 +1,10 @@
-console.log("Hello World na Main!");
+/* 
+  atribuindo um valor para uma varivel
+  Não precisa passar o tipo!!
+
+  let nameOfVariable = value
+*/
+
 
 let firstName = 'Silas';
 let lastName = 'Leite';
