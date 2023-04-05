@@ -32,8 +32,8 @@ console.log(numFloat2);
 let numFloat3 = +num;
 console.log(numFloat3);
 
-num = 9.81
-let numInt4 = parseInt(num)
+num = 9.81;
+let numInt4 = parseInt(num);
 
-console.log(numInt4)
+console.log(numInt4);
 ```
