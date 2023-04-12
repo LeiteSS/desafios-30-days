@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
+
+import profile from './assets/images/photo.jpeg';
 import pet from './assets/images/pet.jpeg';
 
 import html from './assets/images/logo-html.png';
@@ -75,7 +77,7 @@ const techsFormatted = techs.map((tech) => <li>{tech}</li>)
         <ul>{techsFormatted}</ul>
         {result}
         {personAge}
-        {image}
+
       </div>
   </main>
   );
@@ -106,6 +108,48 @@ const techsFormatted = techs.map((tech) => <li>{tech}</li>)
 
   );
 
+  const imgCard = {
+    borderRadius: 50,
+    width: 250,
+    height: 200,
+  }
+
+  
+
+  const card = (
+    <div className='card'>
+      <img src={profile} alt="Foto do T-rock" style={imgCard}/>
+      <div className='container'>
+        <h4><b>John Doe</b></h4>
+        <p>Senior Developer, Finland</p>
+        <h3>SKILLS</h3>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Sass</li>
+          <li>JS</li>
+          <li>React</li>
+          <li>Redux</li>
+          <li>Node</li>
+          <li>MongoDB</li>
+          <li>Python</li>
+          <li>Flask</li>
+          <li>Django</li>
+          <li>NumPy</li>
+          <li>Pandas</li>
+          <li>Data Analysis</li>
+          <li>MYSQL</li>
+          <li>GraphQL</li>
+          <li>D3.js</li>
+          <li>Gatsby</li>
+          <li>Docker</li>
+          <li>Heroku</li>
+          <li>Git</li>
+        </ul>
+      </div>
+    </div>
+  );
+
 
   const copyRight = 'Copyright 2020';
 
@@ -122,6 +166,7 @@ const techsFormatted = techs.map((tech) => <li>{tech}</li>)
       {header}
       {main}
       {logos}
+      {card}
       {subscribe}
       {footer}
     </div>
