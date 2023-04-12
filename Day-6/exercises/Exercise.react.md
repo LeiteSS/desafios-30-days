@@ -9,6 +9,7 @@ Isso é necessario para poder renderizar uma lista do array.
 
 
 3. Qual é a importância de destruir (destructuring) o codigo?
+Dessa forma, é possivel extrair multiplas propriedades, ou itens, de um array de uma vez.
 
 4. Destruir o código (destructuring) torna o código limpo ou facil de ler?
-
+Destructuring torna o código facil de ler e manter, consequentemente, o código se torna limpo.
