@@ -162,12 +162,28 @@ const personAccount = {
   incomes: 150.00,
   expenses: 23.50,
   totalIncome: function() {
-    
+    let totalIncome = this.incomes - this.expenses;
+
+    return totalIncome;
   },
   accountBalance: function(){
+    let balance = this.totalIncome();
 
+    return `Ganhos ${this.incomes}, dividas ${this.expenses} e saldo: ${balance}`;
   },
-  accountInfo: function(){},
-  addExpense: function(){},
-  accountBalance: function(){}
+  accountInfo: function(){
+    return `${this.firstName} ${this.lastName} \
+            ${this.accountBalance()}`
+  },
+  addExpense: function(){
+    this.expenses + 1;
+  },
+
+  totalExpenses: function(){
+    return `Dividas: ${this.expenses}`;
+  },
+  
+  addIncome: function() {
+    this.incomes + 1;
+  }
 }

@@ -236,4 +236,4 @@ Class Based
 Mounting, Updating e Unmounting.
 
 9. O que é o estado em React?
-É um objeto do react que é usado para conter dados ou informação sobre o componente.
+É um objeto do react que é usado para conter dados ou informação sobre o componente. Um estado do componente pode mudar durante o tempo, quando isso acontece o componente é renderizado novamente.
