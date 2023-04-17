@@ -1,0 +1,42 @@
+#conteudo {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+}
+
+#conteudo h2 {
+  margin: 10px;
+}
+
+#numeros {
+  justify-content: center;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-size: 32px;
+}
+
+#even {
+  background-color: #32CD32;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-size: 32px;
+}
+
+#odd {
+  background-color:  #FFC300;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-size: 32px;
+}
+
+#prime {
+  background-color:  #C70039 ;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-size: 32px;
+}
