@@ -1,0 +1,12 @@
+#cabecalho {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: aliceblue;
+  width: 100%;
+  height: auto;
+}
+
+#cabecalho h3 {
+  color: gray;
+}

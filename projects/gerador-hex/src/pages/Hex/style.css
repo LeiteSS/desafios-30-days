@@ -1,0 +1,10 @@
+#conteudo {
+  display: grid;
+  grid-template-columns: 100px 150px 200px;
+  column-count: auto;
+
+}
+
+#conteudo h2 {
+  margin: 10px;
+}
