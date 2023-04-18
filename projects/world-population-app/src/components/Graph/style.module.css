@@ -1,0 +1,12 @@
+#graph {
+  position: relative;
+  max-width: 800px;
+  height: 400px;
+  padding: 50px 50px 50px 50px
+}
+
+.barLineContainer {
+  width: 88%;
+  height: 100%;
+
+}
