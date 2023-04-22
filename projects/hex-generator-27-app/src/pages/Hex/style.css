@@ -1,0 +1,10 @@
+#hex {
+  display: grid;
+  grid-template-columns: 100px 150px 200px;
+  column-count: auto;
+
+}
+
+#hex h2 {
+  margin: 10px;
+}
