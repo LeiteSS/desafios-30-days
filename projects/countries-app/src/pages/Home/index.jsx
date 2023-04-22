@@ -9,7 +9,7 @@ const Home = () => {
   const [region, setRegion] = useState(HomeCards);
 
   const searchCountry = (e) => {
-    const foundCountry = HomeCards.filter(country => country.name.toLowerCase().includes(e.target.value.toLowerCase().trim()))
+    const foundCountry = HomeCards.filter(country => country.name.official.toLowerCase().includes(e.target.value.toLowerCase().trim()))
     setRegion(e.target.value === "" ? HomeCards : foundCountry)
     setSearch(e.target.value)
   }

@@ -1,28 +1,29 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import data from "../../data/data.json"
+//import dataJson from "../../data/data.json"
+
+import data from '../../services/api';
+
 import "./style.css"
 
 export const HomeCards = data.map((country) => {
-    const { name, population, region, capital, flags, alpha3Code } = country
     return {
-        name,
-        population,
-        region,
-        capital,
-        flags,
-        alpha3Code
+        name: country.name.official,
+        population: country.population,
+        region: country.region,
+        capital: country.capital,
+        flags: country.flags,
+        idd: country.idd.root
     }
 })
 
 const Card = ({ country }) => {
-
     country.capital == undefined ? country.capital = "-" : country.capital
 
     return (
         <div className="card">
             <div className="card-flag-container">
-                <Link to={country.alpha3Code}><img className="card-flag" src={country.flags.svg} alt="Country flag" /></Link>
+                <Link to={country.idd}><img className="card-flag" src={country.flags.svg} alt="Country flag" /></Link>
             </div>
             <div className="card-info">
                 <h2>{country.name}</h2>
