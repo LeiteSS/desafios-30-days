@@ -2,7 +2,7 @@ const express = require("express");
 const postRoutes = express.Router();
 const fs = require('fs');
 
-const dataPath = '../data/posts.json';
+const dataPath = './src/data/posts.json';
 
 const savePost = (data) => {
   const stringfyData = JSON.stringify(data);
