@@ -13,7 +13,7 @@ const TweetBox = ({ addTweet }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    addTweet({avatar:  'assets/user.png', displayName: 'Leite, S.S.', verified: true, text: tweetMsg,  image: tweetImg, username: '@themilkstripes'});
+    addTweet({avatar:  'assets/user.png', displayName: 'Leite, S.S.', verified: true, text: tweetMsg,  image: tweetImg, username: 'themilkstripes'});
 
     setTweetMsg("");
     setTweetImg("");

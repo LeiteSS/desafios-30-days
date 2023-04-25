@@ -8,11 +8,25 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishIcon from '@mui/icons-material/Publish';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
+import axios from "axios";
+
 import "./styles.css";
 
 const Post = forwardRef(
-  ({ displayName, username, verified, text, image, avatar }, ref) => {
+  ({ id, displayName, username, verified, text, image, avatar }, ref) => {
     const [liked, setLiked] = useState(false);
+  
+
+    const deletePost =  (id) => {
+      try {
+         axios.delete(`http://localhost:3000/posts/${id}`);
+      } catch (error) {
+        console.log(error);
+      }
+
+      window.location.reload();
+    }
+
     return (
       <div className="post" ref={ref}>
         <div className="post__avatar">
@@ -49,7 +63,7 @@ const Post = forwardRef(
                 fontSize="small"
               />
             )}
-            <PublishIcon fontSize="small" />
+            <PublishIcon onClick={() => deletePost(id)} fontSize="small" />
           </div>
         </div>
       </div>

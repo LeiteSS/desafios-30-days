@@ -1,75 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import Home from './pages/Home';
+import Delete from './pages/Delete';
+import Update from './pages/Update';
 
-import Sidebar from "./Components/Sidebar";
-import Feed from "./Components/Feed";
-import Widgets from "./Components/Widgets";
+const App = () => {
+  const navigate = useNavigate();
 
-import "./App.css";
-function App() {
-  const [open, setOpen] = useState(false);
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    let mounted = true;
-    if (window.innerWidth < 720) {
-      if (mounted) {
-        setMobile(true);
-        setOpen(true);
-      }
-    } else {
-      if (mounted) {
-        setMobile(false);
-        setOpen(false);
-      }
-    }
-    return () => {
-      mounted = false;
-    };
-  }, []);
-  useEffect(() => {
-    let mounted = true;
-    window.addEventListener("resize", () => {
-      if (window.innerWidth < 720) {
-        if (mounted) {
-          setMobile(true);
-          setOpen(true);
-        }
-      } else {
-        if (mounted) {
-          setMobile(false);
-          setOpen(false);
-        }
-      }
-    });
-    return () => {
-      mounted = false;
-    };
-  }, []);
   return (
-    <div className="app">
-      <div className="app__body">
-          {/* sidebar */}
-          {mobile ? (
-            <SwipeableDrawer
-              anchor="left"
-              open={open}
-              onClose={() => setOpen(false)}
-              onOpen={() => setOpen(true)}
-            >
-              <Sidebar />
-            </SwipeableDrawer>
-          ) : (
-            <Sidebar />
-          )}
-
-          {/* Feed */}
-          <Feed />
-          {/* widgets */}
-          <Widgets />
-        </div>
+    <div>
+      <button onClick={() => navigate(-1)}>go back</button>
+      <Routes>
+        <Route exact path="/" element={<Home />}/>
+        <Route path='/delete/:id' element={<Delete />} />
+        <Route path='/update/:id' element={<Update />} />
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -13,16 +13,18 @@ const Feed = () => {
 
 
   const url = "http://localhost:3000/posts";
+  const deleteUrl = "http://localhost:3000/posts/delete";
 
   const getData = async () => {
     try {
       const { data } = await axios.get(url);
-      console.log(data);
+     
       setPosts(data);
     } catch (error) {
       console.log(error);
     }
   }
+  
 
   useEffect(() => {
     getData();
@@ -30,6 +32,7 @@ const Feed = () => {
 
   const addTweet = async (posts) => {
     try {
+     
       await axios.post(url, posts, {
         headers: {
           "Content-Type": "application/json"
@@ -55,16 +58,17 @@ const Feed = () => {
       {/* Posts */}
       <FlipMove>
         {posts?.map(
-          ({ avatar, displayName, verified, text, image, username }, index) => {
+          (user) => {
             return (
               <Post
-                key={index}
-                displayName={displayName}
-                username={username}
-                verified={verified}
-                text={text}
-                image={image}
-                avatar={avatar}
+                key={user.id}
+                id={user.id}
+                displayName={user.displayName}
+                username={user.username}
+                verified={user.verified}
+                text={user.text}
+                image={user.image}
+                avatar={user.avatar}
               />
             );
           }

@@ -5,9 +5,11 @@ export {
   FavoriteBorder,
   ExitToApp,
   LocationOn,
-  Search,
-} from 'style-icons/material-outlined';
+  Search
+} from 'styled-icons/material-outlined';
 
-export { Person, Cake, Favorite } from 'style-icons/material';
-export { ArrowLeft } from 'styled-icons/heroicons-outline';
-export { Chat } from 'syled-icons/heroicons-outline';
+export { Retweet } from 'styled-icons/evil';
+export { Twitter } from 'styled-icons/remix-fill';
+export { Person, Cake, Favorite } from 'styled-icons/material';
+export { ArrowLeft } from 'styled-icons/heroicons-solid';
+export { ChatDots } from 'styled-icons/bootstrap';
