@@ -48,18 +48,28 @@ postRoutes.get('/posts/', (req, res) => {
 })
 
 // UPDATE - put a new post
-postRoutes.put('/posts/:id', (req, res) => {
+postRoutes.post('/posts/update/', (req, res) => {
   let existPosts = getPosts();
+  const postId = req.body.id;
 
-  fs.readFileSync(dataPath, 'utf8', (err, data) => {
-    const postId = req.params['id'];  
-    
-    existPosts[postId] = req.body;
-    savePost(existPosts);
+  existPosts[postId - 1] = req.body;
+  console.log(req.body);
+  
+  savePost(existPosts);
+  res.send(`post with id ${postId} has been updated`);
+  // fs.readFileSync(dataPath, 'utf8', (err, data) => {
+  //   const postId = req.params['id'];
+  //   console.log(postId);
+  //   req.body.id = postId;  
+  //   existPosts.push(req.body);
 
-    res.send(`post with id ${postId} has been updated`);
-  }, true);
+  //   console.log(req.body);
+  //   savePost(existPosts);
+
+  //   res.send(`post with id ${postId} has been updated`);
+  // }, true);
 });
+
 
 // DELETE - delete a post
 postRoutes.delete('/posts/:id', (req, res) => {
@@ -70,6 +80,7 @@ postRoutes.delete('/posts/:id', (req, res) => {
   let index = existPosts.indexOf(postId);
   console.log(index);
   existPosts.splice(index, 1);
+
   savePost(existPosts);
 
   res.send(`posts with id ${postId} has been deleted`);

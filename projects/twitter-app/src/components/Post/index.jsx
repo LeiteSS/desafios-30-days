@@ -11,15 +11,19 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import axios from "axios";
 
 import "./styles.css";
+import TweetBoxUp from "../TweetBoxUp";
+import Modal from './Modal';
 
 const Post = forwardRef(
   ({ id, displayName, username, verified, text, image, avatar }, ref) => {
     const [liked, setLiked] = useState(false);
-  
-
-    const deletePost =  (id) => {
+    const [show, setShow] = useState(false);
+    const url = `http://localhost:3000/posts/update/`;
+    
+    const deletePost = async () => {
       try {
-         axios.delete(`http://localhost:3000/posts/${id}`);
+
+        await axios.delete(`http://localhost:3000/posts/${id}`);
       } catch (error) {
         console.log(error);
       }
@@ -27,7 +31,36 @@ const Post = forwardRef(
       window.location.reload();
     }
 
+    const upTweet = async (posts) => {
+      try {
+        console.log(posts);
+        await axios.post(url, posts, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
+
+      window.location.reload();
+    }
+
+    const hideModal = () => {
+      setShow(false);
+    }
+
+    const showModal = () => {
+      setShow(true);
+    }
+
     return (
+      <>
+        {(show === true) ?  
+        <Modal show={showModal} handleClose={hideModal}>
+          <TweetBoxUp upTweet={upTweet} id={id} msg={text} img={image}/>
+        </Modal> 
+      :
       <div className="post" ref={ref}>
         <div className="post__avatar">
           <Avatar src={avatar} alt="user" />
@@ -49,7 +82,7 @@ const Post = forwardRef(
           </div>
           {image && <img src={image} alt="post_img" />}
           <div className="post__footer">
-            <ChatBubbleOutlineIcon fontSize="small" />
+            <ChatBubbleOutlineIcon onClick={showModal} fontSize="small" />
             <RepeatIcon fontSize="small" />
             {liked ? (
               <FavoriteIcon
@@ -63,12 +96,16 @@ const Post = forwardRef(
                 fontSize="small"
               />
             )}
-            <PublishIcon onClick={() => deletePost(id)} fontSize="small" />
+            <PublishIcon onClick={deletePost} fontSize="small" />
+
           </div>
         </div>
-      </div>
+      </div>}
+      </>
     );
   }
 );
+
+{/* */}
 
 export default Post;
